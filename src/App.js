@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Route, NavLink } from 'react-router-dom'
+import { Route, NavLink, Switch, Redirect } from 'react-router-dom'
 
 import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
-import Course from './containers/Course/Course';
+
 
 class App extends Component {
   render () {
@@ -14,9 +14,13 @@ class App extends Component {
           <ul><NavLink to="/courses">Courses</NavLink> </ul> 
           <li> </li> 
         </ol>
-        <Route path="/users" exact component={Users}/> 
+        <Switch> 
+        <Route path="/users" component={Users}/> 
         <Route path="/courses" component={Courses}/> 
-        <Route path="/courses/course" component={Course}/> 
+
+
+        {/* <Redirect to="/all-courses" to="/courses"/>  */}
+        </Switch> 
       </div>
     );
   }
